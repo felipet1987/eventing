@@ -2,31 +2,40 @@
 package eventing;
 
 import com.google.common.eventbus.EventBus;
-import eventing.command.Action;
+import com.google.gson.Gson;
+import eventing.action.ActionType;
+import eventing.action.Entry;
+import eventing.core.Action;
 import eventing.core.Direction;
-import eventing.core.Turtle;
-import eventing.journal.Journal;
+import eventing.core.Handler;
+import eventing.journal.Record;
+
+import java.time.Instant;
 
 
 public class App {
 
 
+
+
     public static void main(String[] args) {
 
-        Journal journal = new Journal(new EventBus());
+        Record record = new Record(new EventBus());
 
-        Turtle turtle = new Turtle(journal);
+        Turtle turtle = new Turtle("jorge",record);
+
+        turtle.move(new Move(Direction.NORTH,5));
+        turtle.move(new Move(Direction.LEFT,5));
 
 
 
-        turtle.move(4, Direction.LEFT);
-        turtle.move(8, Direction.NORTH);
-        turtle.move(8, Direction.SOUTH);
 
-        turtle.show();
 
-//        turtle.move(10, Direction.NORTH);
-//        turtle.move(5, Direction.SOUTH);
+
+
+
+
+
 
 
 
@@ -36,4 +45,6 @@ public class App {
 
 
     }
+
+
 }

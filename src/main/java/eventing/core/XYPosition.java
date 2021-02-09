@@ -1,6 +1,5 @@
 package eventing.core;
 
-import eventing.command.request.MoveRequest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
@@ -16,7 +15,7 @@ public class XYPosition {
     private int x;
     private int y;
 
-    public void move(MoveRequest request) {
+    public void move(Direction direction,int steps) {
 
         HashMap<Direction, Consumer<Integer>> moves = new HashMap<>();
         moves.put(Direction.LEFT, (s) -> x = x + s);
@@ -24,7 +23,6 @@ public class XYPosition {
         moves.put(Direction.NORTH,(s) -> y = y + s);
         moves.put(Direction.SOUTH,(s) -> y = y - s);
 
-        direction = request.getDirection();
-        moves.get(direction).accept(request.getSteps());
+        moves.get(direction).accept(steps);
     }
 }

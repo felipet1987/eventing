@@ -1,6 +1,6 @@
-package eventing.command.event;
+package eventing.action;
 
-import eventing.command.Action;
+import eventing.core.Content;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,8 +12,8 @@ import java.time.Instant;
 @Builder
 @ToString
 @AllArgsConstructor
-public class BaseEvent {
-    private Instant sent;
-    private Action action;
-    private String payload;
+public class Entry {
+    private Instant when;
+    private ActionType actionType;
+    private String content;
 }

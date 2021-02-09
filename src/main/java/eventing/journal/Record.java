@@ -1,15 +1,16 @@
 package eventing.journal;
 
 import com.google.common.eventbus.EventBus;
-import eventing.command.event.BaseEvent;
+import eventing.action.Entry;
+import eventing.core.Handler;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class Journal {
+public class Record {
 
     private EventBus eventBus;
 
-    public void send(BaseEvent event) {
+    public void send(Entry event) {
         eventBus.post(event);
     }
 
