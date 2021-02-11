@@ -1,6 +1,5 @@
 package eventing.action;
 
-import eventing.core.Content;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

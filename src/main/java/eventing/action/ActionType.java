@@ -2,5 +2,5 @@ package eventing.action;
 
 public enum ActionType {
     SAY,
-    MOVE, SHOW;
+    MOVE, SHOW, NONE, EQUIP, USE;
 }

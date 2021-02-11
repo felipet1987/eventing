@@ -1,4 +1,4 @@
-package eventing;
+package eventing.core;
 
 import com.google.gson.Gson;
 import eventing.core.Direction;

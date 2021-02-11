@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 @AllArgsConstructor
-@Data
 @ToString
 public class XYPosition {
     private Direction direction;
@@ -24,5 +23,7 @@ public class XYPosition {
         moves.put(Direction.SOUTH,(s) -> y = y - s);
 
         moves.get(direction).accept(steps);
+
+        this.direction = direction;
     }
 }
